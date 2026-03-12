@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 97%;
+    --foreground: 160 30% 10%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 160 30% 10%;
+
+    --popover: 40 30% 97%;
+    --popover-foreground: 160 30% 10%;
+
+    --primary: 160 70% 18%;
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 40 35% 88%;
+    --secondary-foreground: 160 30% 15%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 160 10% 45%;
+
+    --accent: 42 75% 55%;
+    --accent-foreground: 160 30% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 160 70% 18%;
+
+    --radius: 0.75rem;
+
+    --gold: 42 75% 55%;
+    --gold-light: 42 60% 75%;
+    --emerald-deep: 160 70% 12%;
+    --emerald-glow: 160 60% 30%;
+
+    --sidebar-background: 160 70% 12%;
+    --sidebar-foreground: 40 30% 97%;
+    --sidebar-primary: 42 75% 55%;
+    --sidebar-primary-foreground: 160 30% 10%;
+    --sidebar-accent: 160 50% 20%;
+    --sidebar-accent-foreground: 40 30% 97%;
+    --sidebar-border: 160 40% 20%;
+    --sidebar-ring: 42 75% 55%;
+
+    font-family: 'Noto Sans', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-arabic {
+    font-family: 'Amiri', serif;
+  }
+
+  .geometric-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--gold) / 0.06) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, hsl(var(--gold) / 0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)));
+  }
+
+  .emerald-gradient {
+    background: linear-gradient(135deg, hsl(var(--emerald-deep)), hsl(var(--emerald-glow)));
+  }
+
+  .pulse-ring {
+    animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 hsl(var(--gold) / 0.5); }
+    70% { transform: scale(1); box-shadow: 0 0 0 12px hsl(var(--gold) / 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 hsl(var(--gold) / 0); }
+  }
+
+  .tasbeeh-press {
+    animation: tasbeeh-press 0.15s ease-out;
+  }
+
+  @keyframes tasbeeh-press {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.92); }
+    100% { transform: scale(1); }
+  }
+}
